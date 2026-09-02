@@ -1,0 +1,249 @@
+/* =====================================================
+   CV.css — catppuccin theme, shared with Globle.css
+   Auto light/dark via prefers-color-scheme for now.
+   To add a manual toggle later: set data-theme="light"
+   or data-theme="dark" on <html> via JS, then add
+   [data-theme="dark"] / [data-theme="light"] blocks
+   below that mirror these two media queries.
+   ===================================================== */
+
+@media (prefers-color-scheme: dark){
+:root{
+    --Rosewater: #f5e0dc;
+    --Peach:#fab387;
+    --Mauve:#cba6f7;
+    --Red:#f38ba8;
+    --Green:#a6e3a1;
+    --Blue:#89b4fa;
+    --Lavender:#b4befe;
+
+    --Text:#cdd6f4;
+    --SubText:#a6adc8;
+    --Overlay:#6c7086;
+    --Surface:#313244;
+    --Base:#1e1e2e;
+    --Mantle:#181825;
+    --Crust:#11111b;
+}
+}
+
+@media (prefers-color-scheme: light){
+:root{
+    --Rosewater: #dc8a78;
+    --Peach:#fe640b;
+    --Mauve:#8839ef;
+    --Red:#d20f39;
+    --Green:#40a02b;
+    --Blue:#1e66f5;
+    --Lavender:#7287fd;
+
+    --Text:#4c4f69;
+    --SubText:#6c6f85;
+    --Overlay:#9ca0b0;
+    --Surface:#ccd0da;
+    --Base:#eff1f5;
+    --Mantle:#e6e9ef;
+    --Crust:#dce0e8;
+}
+}
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+    background-color: var(--Crust);
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--Base);
+    color: var(--Text);
+    margin: 0;
+}
+
+h1, h2, h3, h4{
+    font-family: 'Lora', serif;
+}
+
+a{
+    color: var(--Blue);
+}
+
+/* ---------- Nav (matches Home.html banner) ---------- */
+.banner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0 5%;
+    box-shadow: 0rem 0rem 10px -8px var(--Rosewater);
+    background-color: var(--Mantle);
+}
+.bannernav ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+}
+.bannernav ul li{
+    padding: 0 10px;
+}
+.bannernav ul li a{
+    text-decoration: none;
+    color: var(--Text);
+    padding: 5px;
+    font-weight: 600;
+}
+.bannernav ul li a[aria-current="page"]{
+    color: var(--Peach);
+}
+
+/* ---------- CV layout ---------- */
+.cv-wrap{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 5%;
+}
+
+.cv-header{
+    margin-bottom: 30px;
+}
+.cv-header h1{
+    margin: 0 0 5px;
+    font-size: 2.2rem;
+}
+.cv-header p{
+    margin: 0;
+    color: var(--SubText);
+}
+
+.under-construction{
+    background-color: var(--Surface);
+    border-left: 4px solid var(--Peach);
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+.cv-section{
+    margin-bottom: 36px;
+}
+.cv-section h2{
+    border-bottom: 1px solid var(--Overlay);
+    padding-bottom: 6px;
+    margin-bottom: 16px;
+}
+
+.cv-entry{
+    margin-bottom: 18px;
+}
+.cv-entry-heading{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px;
+    font-weight: 600;
+}
+.cv-entry-heading .place{
+    color: var(--Text);
+}
+.cv-entry-heading .date{
+    color: var(--SubText);
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+.cv-entry p{
+    margin: 4px 0 0;
+    color: var(--SubText);
+}
+
+.skills-list{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+}
+.skills-list li{
+    background-color: var(--Surface);
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 0.9rem;
+}
+
+.skills-group{
+    margin-bottom: 16px;
+}
+.skills-group h3{
+    font-size: 1rem;
+    color: var(--SubText);
+    margin: 0 0 8px;
+    font-weight: 600;
+}
+
+.projects-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 16px;
+}
+.project-card{
+    background-color: var(--Surface);
+    border-radius: 12px;
+    padding: 14px 18px;
+}
+.project-card h3{
+    margin: 0 0 4px;
+    font-size: 1.05rem;
+}
+.project-card p{
+    margin: 0;
+    color: var(--SubText);
+}
+
+.project-link{
+    margin: 10px 0 0;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.project-link a{
+    font-weight: 600;
+}
+.project-link.status-public{
+    background-color: color-mix(in srgb, var(--Green) 15%, transparent);
+    border-left: 3px solid var(--Green);
+}
+.project-link.status-private{
+    background-color: color-mix(in srgb, var(--Peach) 15%, transparent);
+    border-left: 3px solid var(--Peach);
+}
+.project-link.status-pending{
+    background-color: color-mix(in srgb, var(--Overlay) 15%, transparent);
+    border-left: 3px dashed var(--Overlay);
+    color: var(--SubText);
+}
+
+.contact-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.contact-list li{
+    margin-bottom: 6px;
+}
+
+footer{
+    padding: 20px 5%;
+    background-color: var(--Mantle);
+    text-align: center;
+    color: var(--SubText);
+    box-shadow: 0rem 0rem 10px -8px var(--Rosewater);
+}
